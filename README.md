@@ -1,4 +1,4 @@
-DBF to SQL
+# DBF to SQL
 
 Dumps a DBF file to a SQL table using SQLAlchemy.
 
@@ -13,13 +13,19 @@ dbf
 Usage:
 To be used interactively or in a script.
 
-from dbf_to_sql import dbf_to_sql as dts
+>> from dbf_to_sql import dbf_to_sql as dts
 
-dbf_file = "mydbf.dbf"
+>> dbf_file = "mydbf.dbf"
 
-Session = dts(dbf_file)
+>> table_obj = dts(dbf_file)
 
-session = Session()
+>> table_obj
+{"session": session,
+ "engine": engine,
+ "metadata": metadata,
+ "field_names": field_names}
 
-# Perform queries on your session in SQLAlchemy style
+>> session = table_obj.session
+
+Perform queries on your session in SQLAlchemy style
 

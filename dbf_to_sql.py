@@ -35,5 +35,9 @@ def dump_dbf(dbf_file):
     class dbfTable(object): pass
     mapper(dbfTable, table)
 
-    Session = create_session(bind=engine, autocommit=False, autoflush=True)
-    return Session
+    session = create_session(bind=engine, autocommit=False, autoflush=True)
+    table_obj = {"metadata": metadata,
+                 "session": session,
+                 "engine": engine,
+                 "field_names": field_names}
+    return table_obj
